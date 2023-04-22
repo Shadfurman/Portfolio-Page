@@ -1,0 +1,8 @@
+[
+  {
+    "file": "blog_template.html",
+    "title": "Blog Post Title",
+    "summary": "\n                This is the blog post summary. It provides a brief overview of the content and encourages readers to continue reading the full post.\n            ",
+    "link": "blog\\blog_template.html"
+  }
+]

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Johnston - Portfolio & Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="matrix-container"></div>
+    <header>
+        <h1>Jonathan Johnston</h1>
+        <img src="images\IMG_1304.JPG" alt="Profile picture of Jonathan Johnston" id="profile-picture" width="380" />
+        <h2>Blockchain Web Wizard & AI Aficionado</h2>
+        <nav>
+            <ul>
+                <li><a href="#personal-info">Personal Information</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#blog-list">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="personal-info">
+        <h2>My Deets</h2>
+        <p>Email: <a href="mailto:shadfurman@hotmail.com">shadfurman@hotmail.com</a></p>
+        <p>Phone: (503) 568-6477</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/jonathan-johnston-b302066/" target="_blank">Jonathan Johnston</a></p>
+        <p>GitHub: <a href="https://github.com/Shadfurman" target="_blank">Shadfurman</a></p>
+    </section>
+
+    <section id="resume">
+        <h2>Resume</h2>
+        <a href="Resume-Jonathan-Johnston.pdf" download="Resume-Jonathan-Johnston.pdf">Download Resume</a>
+        <div id="expand-down" onclick="toggleVisibility('resume-iframe')">
+            <hr>
+            <div style="text-align: center;">▼</div>
+        </div>
+        <iframe src="Resume-Jonathan-Johnston.pdf" id="resume-iframe" width="100%" height="800px" style="display:none;"></iframe>
+    </section>
+
+    <section id="blog-list">
+        <h2>Blog, projects, musings, errmm... </h2>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Jonathan Johnston. All rights reserved.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
