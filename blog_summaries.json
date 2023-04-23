@@ -1,8 +1,14 @@
 [
   {
-    "file": "blog_template.html",
-    "title": "Blog Post Title",
-    "summary": "\n                This is the blog post summary. It provides a brief overview of the content and encourages readers to continue reading the full post.\n            ",
-    "link": "blog\\blog_template.html"
+    "file": "arbitrage_bot.html",
+    "title": "My First Crypto Arbitrage Bot",
+    "summary": "\n                Documentation of my first attempt at a crypto arbitrage bot.\n            ",
+    "link": "blog\\arbitrage_bot.html"
+  },
+  {
+    "file": "solid_vote.html",
+    "title": "Building the SolidVote Decentralized Voting Application",
+    "summary": "\n                I discuss creating SolidVote, a decentralized voting app on Ethereum. The journey involved smart contracts, Truffle, Ganache, web3.js, Node.js, and Metamask integration, leading to a functional and secure voting application.\n            ",
+    "link": "blog\\solid_vote.html"
   }
 ]
