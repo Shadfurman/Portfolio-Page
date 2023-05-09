@@ -1,136 +1,143 @@
 /* Reset some default styles */
 html {
-    box-sizing: border-box;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
-  body, h1, h2, h3, p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Basic typography */
-  body {
-    /* font-family: 'Arial', sans-serif; */
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-  }
-  
-  h1, h2, h3 {
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.3rem;
-  }
-  
-  p {
-    margin-bottom: 1rem;
-  }
-  
-  /* Header and navigation */
-  header {
-    text-align: center;
-    padding: 1.5rem 0;
-    background-color: #f4f4f4;
-    border-bottom: 2px solid #333;
-  }
-  
-  #introduction {
-    margin-left: 15rem;
-    margin-right: 15rem;
-  }
+  box-sizing: border-box;
+}
 
-  #profile-picture {
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1rem;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-  
-  nav ul li {
-    margin: 0 1rem;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  nav ul li a:hover {
-    color: #666;
-  }
-  
-  /* Sections */
-  section {
-    margin: 2rem 0;
-    margin-left: 1.5rem;
-  }
-  
-  /* Blog list */
-  #blog-list article {
-    margin-bottom: 1.5rem;
-    margin-left: 1.5rem;
-  }
-  
-  #blog-list article a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  #blog-list article a:hover {
-    color: #666;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    background-color: #f4f4f4;
-    padding: 1rem 0;
-    border-top: 2px solid #333;
-  }
-  
-  #matrix-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
-  }
-  
-  .matrix-column {
-    position: absolute;
-    /* bottom: -30%; */
-    font-family: 'Courier New', monospace;
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.5;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 8px rgb(200, 230, 200);
-    white-space: nowrap;
-    writing-mode: vertical-rl;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic typography */
+body {
+  /* font-family: 'Arial', sans-serif; */
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #666;
+}
+
+/* Header and navigation */
+header {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #333;
+}
+
+#introduction {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+#profile-picture {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+/* Sections */
+section {
+  margin: 2rem 0;
+  margin-left: 1.5rem;
+}
+
+/* Blog list */
+#blog-list article {
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+#blog-list article a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 1rem 0;
+  border-top: 2px solid #333;
+}
+
+#matrix-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.matrix-column {
+  position: absolute;
+  /* bottom: -30%; */
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 8px rgb(200, 230, 200);
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+}

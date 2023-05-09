@@ -32,79 +32,79 @@ function toggleVisibility(elementId) {
 
 
 
-const container = document.getElementById("matrix-container");
-const numberOfColumns = 50;
-const columnHeight = 20;
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~";
+// const container = document.getElementById("matrix-container");
+// const numberOfColumns = 50;
+// const columnHeight = 20;
+// const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~";
 
-function randomCharacter() {
-  return characters[Math.floor(Math.random() * characters.length)];
-}
+// function randomCharacter() {
+//   return characters[Math.floor(Math.random() * characters.length)];
+// }
 
-function createColumn() {
-    const column = document.createElement("div");
-    column.classList.add("matrix-column");
+// function createColumn() {
+//     const column = document.createElement("div");
+//     column.classList.add("matrix-column");
   
-    // Set a random horizontal position
-    const position = Math.random() * 100;
-    column.style.left = `${position}%`;
+//     // Set a random horizontal position
+//     const position = Math.random() * 100;
+//     column.style.left = `${position}%`;
   
-    // Set a random initial bottom value
-    const initialBottom = Math.random() * (100 + columnHeight);
-    column.style.bottom = `${initialBottom}%`;
+//     // Set a random initial bottom value
+//     const initialBottom = Math.random() * (100 + columnHeight);
+//     column.style.bottom = `${initialBottom}%`;
   
-    // Generate random characters for the column
-    for (let i = 0; i < columnHeight; i++) {
-      const char = document.createElement("span");
-      char.textContent = randomCharacter();
-      char.style.opacity = (i + 1) / columnHeight;
-      column.appendChild(char);
-    }
+//     // Generate random characters for the column
+//     for (let i = 0; i < columnHeight; i++) {
+//       const char = document.createElement("span");
+//       char.textContent = randomCharacter();
+//       char.style.opacity = (i + 1) / columnHeight;
+//       column.appendChild(char);
+//     }
   
-    return column;
-  }
+//     return column;
+//   }
 
-// Create and append columns
-for (let i = 0; i < numberOfColumns; i++) {
-  const column = createColumn();
-  container.appendChild(column);
-}
+// // Create and append columns
+// for (let i = 0; i < numberOfColumns; i++) {
+//   const column = createColumn();
+//   container.appendChild(column);
+// }
 
-// Update columns with random characters and falling effect
-function updateColumns() {
-  const columns = document.querySelectorAll(".matrix-column");
+// // Update columns with random characters and falling effect
+// function updateColumns() {
+//   const columns = document.querySelectorAll(".matrix-column");
 
-  columns.forEach(column => {
-    // Move column down
-    // const columnBottom = parseFloat(column.style.bottom, 10) + 50;
-    let columnBottom = parseFloat(column.style.bottom, 10);
-    // const newBottom = (columnBottom - 1 + 100 + columnHeight) % (100 + columnHeight);
-    // let newBottom = ((100 + columnBottom - .7) % 100) - 50;
-    columnBottom -= 0.7;
-    columnBottom = columnBottom.toFixed(2);
+//   columns.forEach(column => {
+//     // Move column down
+//     // const columnBottom = parseFloat(column.style.bottom, 10) + 50;
+//     let columnBottom = parseFloat(column.style.bottom, 10);
+//     // const newBottom = (columnBottom - 1 + 100 + columnHeight) % (100 + columnHeight);
+//     // let newBottom = ((100 + columnBottom - .7) % 100) - 50;
+//     columnBottom -= 0.7;
+//     columnBottom = columnBottom.toFixed(2);
 
-    const header = document.querySelector('header');
-    const headerRect = header.getBoundingClientRect();
-    const headerBottom = headerRect.bottom;
+//     const header = document.querySelector('header');
+//     const headerRect = header.getBoundingClientRect();
+//     const headerBottom = headerRect.bottom;
 
-    const footer = document.querySelector('footer');
-    const footerRect = footer.getBoundingClientRect();
-    const footerBottom = footerRect.bottom;
+//     const footer = document.querySelector('footer');
+//     const footerRect = footer.getBoundingClientRect();
+//     const footerBottom = footerRect.bottom;
 
-    if (columnBottom < -columnHeight) { columnBottom = 100 };
-    // console.log(columnBottom, headerBottom, footerBottom);
+//     if (columnBottom < -columnHeight) { columnBottom = 100 };
+//     // console.log(columnBottom, headerBottom, footerBottom);
 
-    column.style.bottom = `${columnBottom}%`;
+//     column.style.bottom = `${columnBottom}%`;
 
-    // Update characters randomly
-    if (Math.random() < 1) {
-      const index = Math.floor(Math.random() * columnHeight);
-      column.children[index].textContent = randomCharacter();
-    }
-  });
+//     // Update characters randomly
+//     if (Math.random() < 1) {
+//       const index = Math.floor(Math.random() * columnHeight);
+//       column.children[index].textContent = randomCharacter();
+//     }
+//   });
 
-//   requestAnimationFrame(updateColumns);
-  setTimeout(() => {requestAnimationFrame(updateColumns);}, 100);
-}
+// //   requestAnimationFrame(updateColumns);
+// setTimeout(() => {requestAnimationFrame(updateColumns);}, 100);
+// }
 
-updateColumns();
+// updateColumns();
