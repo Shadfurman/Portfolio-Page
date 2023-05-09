@@ -49,7 +49,9 @@
             </section>
             <section>
                 <h3>Dealing with Web3.js Challenges</h3>
-                <p>During development, I encountered challenges related to including the web3.min.js file in the project. After much trial and error, I realized that including the file in the HTML file resolved the issue, as the script tag would automatically include the necessary dependencies when running in the browser.</p>
+                <p>During development, I encountered challenges related to including the web3.min.js file in the project. 
+                    After much trial and error, I realized that including the file in the HTML file resolved the issue, 
+                    as the script tag would automatically include the necessary dependencies when running in the browser.</p>
             </section>
             <section>
                 <h3>Metamask Integration</h3>
@@ -57,11 +59,25 @@
             </section>
             <section>
                 <h3>Improving Functionality</h3>
-                <p>Initially, the application allowed a user to create a ballot and immediately vote, with only one vote per ballot. I later extended the functionality to allow multiple users to set up and create ballots and enable multiple people to link to the created ballots and cast their votes. This was achieved by implementing functions like createNewBallotApp, voteOnBallotApp, and submitVote.
+                <p>Initially, the application allowed a user to create a ballot and immediately vote, with only one vote per ballot. 
+                    I later extended the functionality to allow multiple users to set up and create ballots and enable multiple people to link 
+                    to the created ballots and cast their votes. This was achieved by implementing functions like 
+                    createNewBallotApp, voteOnBallotApp, and submitVote.
 
                     Fetching ABI from JSON File
                     
-                    To optimize the development process, I decided to fetch the contract's ABI (Application Binary Interface) from a JSON file instead of manually copying and reformatting it each time the contract changed. I used the fetch function to accomplish this and struggled a bit with handling asynchronous promises. Eventually, I was able to disable the "connectEthereumWalletButton" until all promises were resolved.</p>
+                    To optimize the development process, I decided to fetch the contract's ABI (Application Binary Interface) from a JSON file 
+                    instead of manually copying and reformatting it each time the contract changed. I used the fetch function to accomplish this 
+                    and struggled a bit with handling asynchronous promises. Eventually, I was able to disable the "connectEthereumWalletButton" 
+                    until all promises were resolved.</p>
+            </section>
+            <section>
+                <h3>Deploying onto the Sepolia Test Network</h3>
+                <p>Deployment was fairly strait forward, but once it was on the network, half of the contract quit working correctly.
+                    After many hours of debugging I discovered my error. To call a contract function doesn't use any gas, but I was using the 
+                    account number as an ID so I still needed send it. When I ran it locally, MetaMask would send the account I was using as a default,
+                    and that changed after deployment onto the network so the contract wasn't getting an account. 
+                </p>
             </section>
             <section>
                 <h3>Conclusion</h3>

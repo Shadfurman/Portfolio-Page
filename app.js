@@ -50,7 +50,7 @@ function createColumn() {
     column.style.left = `${position}%`;
   
     // Set a random initial bottom value
-    const initialBottom = Math.random() * (100 + columnHeight * 1.5);
+    const initialBottom = Math.random() * (100 + columnHeight);
     column.style.bottom = `${initialBottom}%`;
   
     // Generate random characters for the column
@@ -76,11 +76,25 @@ function updateColumns() {
 
   columns.forEach(column => {
     // Move column down
-    const columnBottom = parseFloat(column.style.bottom, 10) + 20;
+    // const columnBottom = parseFloat(column.style.bottom, 10) + 50;
+    let columnBottom = parseFloat(column.style.bottom, 10);
     // const newBottom = (columnBottom - 1 + 100 + columnHeight) % (100 + columnHeight);
-    let newBottom = ((100 + columnBottom - .7) % 100) - 20;
-    newBottom = newBottom.toFixed(2);
-    column.style.bottom = `${newBottom}%`;
+    // let newBottom = ((100 + columnBottom - .7) % 100) - 50;
+    columnBottom -= 0.7;
+    columnBottom = columnBottom.toFixed(2);
+
+    const header = document.querySelector('header');
+    const headerRect = header.getBoundingClientRect();
+    const headerBottom = headerRect.bottom;
+
+    const footer = document.querySelector('footer');
+    const footerRect = footer.getBoundingClientRect();
+    const footerBottom = footerRect.bottom;
+
+    if (columnBottom < -columnHeight) { columnBottom = 100 };
+    // console.log(columnBottom, headerBottom, footerBottom);
+
+    column.style.bottom = `${columnBottom}%`;
 
     // Update characters randomly
     if (Math.random() < 1) {
