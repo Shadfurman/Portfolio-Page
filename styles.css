@@ -93,6 +93,12 @@ nav ul li a {
   text-decoration: none;
 }
 
+#expand-down {
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 /* Sections */
 section {
   margin: 2rem 0;
