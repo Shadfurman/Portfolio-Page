@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Welcome to the Pantech Phone Server</title>
+	<link rel="stylesheet" href="../pantech_styles.css">
+</head>
+
+<body>
+	<h1>This site WAS hosted on an old Pantech Flex P8010 smartphone.</h1>
+	<p class="name">By Jonathan Johnston</p>
+	<p class="date">Posted on August 11, 2022</p>
+	<div class="summary">
+		<p>My experience setting up my first local server using Tiny Server. Outlines roadmap for learning web servers
+			and programming, including my goal of pursuing Ethereum-based smart contract programming. The post also
+			provides instructions for setting up SSH access and authorized keys for passwordless login.</p>
+	</div>
+	<div id="regularText">
+		<p>This is the first local server I setup, that will help me learn about webservers and programming. This server
+			is running Tiny Server.</p>
+
+		<p>The goal is to have a job doing eth based smart contract programming by the end of the year.</p>
+
+		<p>The roadmap currently is:
+		<ul>
+			<li> Refresh on JavaScript </li>
+			<li> Familiarize with GIT and GitHub </li>
+			<li> Start learning Solidity </li>
+			<li> Contribute to projects on GitHub </li>
+			<li> Contribute on forums </li>
+			<li> Begin looking for jobs </li>
+			<li> Finish a medium sized project </li>
+		</ul>
+		</p>
+		<p> I did run into some hurdles in trying to get SSH running from the phone to administer the page. To keep it
+			simple, I used SimpleSSHD.</p>
+		<p> Theres usually no password for Android phones. The screenlock isn't a password, and its usually a pin,
+			pattern, face or fingerprint ID. </p>
+		<p> Instead, SimpleSSHD creates a temporary password, but you don't want to always be looking at the phone to
+			login, defeats a lot of the benefit of SSH. So my second issue was setting up authorized keys. With
+			authorized keys, no password entry is required. </p>
+		<p> SSH uses public/private key pairs to secure the connection, so you want to to generate public/private key
+			pairs and then put them in a file AUTHORIZED_KEYS on the host computer, in the directory the SSH server will
+			be looking for. For SimpleSSHD that directory is,</p>
+	</div>
+	<div id="consoleText">/data/data/org.galexander.sshd/files</div>
+	<div id="regularText">
+		<p> The recommended way of producing public/private keypairs in Windows 10 is ssh-keygen, which before solving
+			my first hurdle, I ran into my second.</p>
+		<p> There are a lot a complicated options to go with when you create your keys, being a first timer at this, I
+			wanted to keep it simple. I just used "ssh-keygen", with no options, so it uses defaults. Generally you want
+			to generate these keys in the /.ssh directory which is probably at, </p>
+	</div>
+	<div id="consoleText">C:\users\%USERNAME%\.ssh\</div>
+	<div id="regularText">
+		<p>It seems its sometimes an issue, that on PowerShell, ssh-keygen without any options, freezes when it asks you
+			for the file pathname and password. I had to force close PowerShell.</p>
+		<p> So, the preferred method to get around this, is to use the options modifiers to state the file pathname and
+			password in the command, so it never asks you, and so apparently it never freezes. That wasn't the option I
+			went with, so I don't have that command for you. I just opened a Cmd Terminal and did it there, reportedly
+			after you run it once it fixes the freezing problems with ssh-keygen in PowerShell, but I haven't tried it
+			again yet. </p>
+		<p> The result is the private key file, <b>id_rsa</b> and the public key file <b>id_rsa.pub</b> you want to get
+			the public key file <b>id_rsa.pub</b> into a file <b> AUTHORIZED_KEYS </b> on the host computer.</p>
+		<p> I couldn't figure out how to use secure copy <b>scp</b> with the temporary password SimpleSSHD provides. It
+			doesn't provide the the temporary password till after you enter the compand, but <b>scp</b> never prompts
+			for a password. I couldn't figure out if there was a way to do the authorization first, except for keypairs,
+			this is what I did instead. (Copied from somewhere else, I don't remember where.)</p>
+		<p> Open the <b>id_rsa.pub</b> file in notepad, or type <b>cat id_rsa.pub</b> in PowerShell, from the ./ssh/
+			directory, and <i>copy the contents.</i></p>
+		<p> SSH'd into the phone, </p>
+	</div>
+	<div id="consoleText">
+		ssh 192.168.0.x -p 2222
+		{username}@192.168.0.x's password:
+		user@android:/data/data/org.galexander.sshd/files
+	</div>
+	<div id="regularText">
+		<p> The IP is going to be your phone IP which is right at the top when you start SimpleSSHD, something like
+			192.168.0.7 and the {username} is actually your windows username. That threw me off a little, but you
+			generally don't have a username on Android, so I guess it defaults to assuming the username is the same.</p>
+		<p> By default it should pop you into the directory you want to be in.
+			Then,</p>
+	</div>
+	<div id="consoleText">
+		echo "{paste contents of id_rsa.pub here}" > authorized_keys
+	</div>
+	<div id="regularText">
+		<p> Close the connection, now when you SSH in again, it won't ask you for a password, unless you opted for a
+			password on the keyfile, in which case, use that password you created, which is of course proper security,
+			but you may or may not do as a first timer keeping things simple. </p>
+
+		<p>Hope this helps.</p>
+</body>
+
+</html>

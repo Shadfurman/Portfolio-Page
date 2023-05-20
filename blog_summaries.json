@@ -3,12 +3,28 @@
     "file": "arbitrage_bot.html",
     "title": "My First Crypto Arbitrage Bot",
     "summary": "\n                Documentation of my first attempt at a crypto arbitrage bot.\n            ",
-    "link": "blog\\arbitrage_bot.html"
+    "link": "blog\\arbitrage_bot.html",
+    "createdDate": "2023-04-22T06:00:00.000Z"
   },
   {
     "file": "solid_vote.html",
     "title": "Building the SolidVote Decentralized Voting Application",
-    "summary": "\n                I discuss creating SolidVote, a decentralized voting app on Ethereum. The journey involved smart contracts, Truffle, Ganache, web3.js, Node.js, and Metamask integration, leading to a functional and secure voting application.\n            ",
-    "link": "blog\\solid_vote.html"
+    "summary": "\n                I discuss creating SolidVote, a decentralized voting app on Ethereum. The journey involved smart\n                    contracts, Truffle, Ganache, web3.js, Node.js, and Metamask integration, leading to a functional and\n                    secure voting application.\n            ",
+    "link": "blog\\solid_vote.html",
+    "createdDate": "2023-04-20T06:00:00.000Z"
+  },
+  {
+    "file": "pantech.html",
+    "title": "Welcome to the Pantech Phone Server",
+    "summary": "\n\t\tMy experience setting up my first local server using Tiny Server. Outlines roadmap for learning web servers\n\t\t\tand programming, including my goal of pursuing Ethereum-based smart contract programming. The post also\n\t\t\tprovides instructions for setting up SSH access and authorized keys for passwordless login.\n\t",
+    "link": "blog\\pantech.html",
+    "createdDate": "2022-08-11T06:00:00.000Z"
+  },
+  {
+    "file": "hpmini.html",
+    "title": "My Journey Setting Up a LAMP Server on an HP Mini",
+    "summary": "\n\t\tReviving my HP Mini with Lubuntu, I share my journey of setting up a LAMP server. Despite hardware\n\t\t\tlimitations and resolution challenges, I find solutions to wifi and video issues. Join me as I breathe new\n\t\t\tlife into this old machine for web server experimentation.\n\t",
+    "link": "blog\\hpmini.html",
+    "createdDate": "2022-08-03T06:00:00.000Z"
   }
 ]

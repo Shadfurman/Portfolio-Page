@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>My Journey Setting Up a LAMP Server on an HP Mini</title>
+	<link rel="stylesheet" href="../pantech_styles.css">
+</head>
+
+<body>
+	<h1>This site WAS hosted on an old Pantech Flex P8010 smartphone.</h1>
+	<p class="name">By Jonathan Johnston</p>
+	<p class="date">Posted on August 3, 2022</p>
+	<div class="summary">
+		<p>Reviving my HP Mini with Lubuntu, I share my journey of setting up a LAMP server. Despite hardware
+			limitations and resolution challenges, I find solutions to wifi and video issues. Join me as I breathe new
+			life into this old machine for web server experimentation.</p>
+	</div>
+	<div id="regularText">
+		<p>I've also got a full LAMP server running on an HP Mini. I bought it used, for college, when my old computer
+			crapped out. It was slow then. It doesn't even have a Intel or AMD CPU, the CPU was made by VIA. The HP 2133
+			Mini had a VIA C7-M processor. The cool thing though, it had a, aluminum/magnesium shell, and it was
+			"waterproof", I could use it in the rain, and I did. The reason I still have it.</p>
+
+		<p>This wasn't the version with Linux, so I installed Lubuntu. When I rebooted, the resolution wouldn't
+			recognize above 640x480 (I think max is 1280x768, so it should), there was a problem with the wifi driver,
+			it needed a proprietary Broadcom version, so I had to hardwire the connection to download drivers and
+			update, and would you believe it, the only ethernet cable I had in the house was the one between the modem
+			and router. I added cord to my wifes Walmart pickup order, and put it down for the day. </p>
+
+		<p>Finally got everything updated, rebooted, wifi works but video still won't work. vbeinfo didn't turn up
+			anything, only reported 640x480. Linux doesn't have drivers like Windows, you get what you get or hope the
+			manufacturer developed a Linux driver.</p>
+
+		<p>So, onto the web for troubleshooting and nothing is working. The most common answer (which honestly pisses me
+			TF off, ignorant close minded gatekeeping arogant tech elitists thinking everyone is stupid), "dude, its an
+			old computer, you don't get higher resolutions", fresh outta gradeschool with no idea of the timeline.
+			Ignorant arogance grates under my skin, sandpaper on raw muscle scrubbing back and forth. The ultimate lack
+			of curiosity. Ug.</p>
+
+		<p> ANYWHO! Somewhere in the install process, something got interupted and the GRUB settings file recorded the
+			wrong resolution. The fix was to delete the line, reboot and let the startup reinitialize it. Seems like a
+			default check with resolution problems with no downside. </p>
+	</div>
+</body>
+
+</html>
