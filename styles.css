@@ -20,7 +20,6 @@ p {
 
 /* Basic typography */
 body {
-  /* font-family: 'Arial', sans-serif; */
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   color: #333;
@@ -161,9 +160,57 @@ footer {
   color: #666;
 }
 
+@media screen and (max-width: 600px) {
+  /* Apply styles for screens that are 600px or smaller */
+
+  /* Modify margins for smaller screen size */
+  #introduction {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  /* Adjust font sizes */
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Adjust nav item margins */
+  nav ul li {
+    margin: 0 0.5rem;
+  }
+
+  /* Adjust section margins */
+  section {
+    margin: 1rem 0;
+    margin-left: 0.5rem;
+  }
+
+  /* Adjust blog list article margins */
+  #blog-list article {
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  /* Move the projects list to the bottom of the page and make it full width */
+  #projects {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
 
 
-#matrix-container {
+/* #matrix-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -176,7 +223,6 @@ footer {
 
 .matrix-column {
   position: absolute;
-  /* bottom: -30%; */
   font-family: 'Courier New', monospace;
   font-size: 2rem;
   font-weight: bold;
@@ -185,4 +231,4 @@ footer {
   text-shadow: 0 0 8px rgb(200, 230, 200);
   white-space: nowrap;
   writing-mode: vertical-rl;
-}
+} */
