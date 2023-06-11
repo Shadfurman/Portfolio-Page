@@ -10,6 +10,29 @@
 	  max-width: 300vw;
 	}
 
+	header {
+		text-align: center;
+		padding: 1.5rem 0;
+		background-color: #f4f4f4;
+		border-bottom: 2px solid #333;
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+		
+	nav ul li {
+		margin: 0 1rem;
+	}
+	
+	nav ul li a {
+		text-decoration: none;
+	}
+	  
 	#regularText {
 		text-align: left;
 		color: white;
@@ -70,6 +93,38 @@
 	html, body {
 	  margin-left: auto;
 	  margin-right: auto;
+	}
+
+	header {
+		text-align: center;
+		padding: 1.5rem 0;
+		background-color: #f4f4f4;
+		border-bottom: 2px solid #333;
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+		
+	nav ul li {
+		margin: 0 1rem;
+	}
+	
+	nav ul li a {
+		text-decoration: none;
+	}
+
+	a {
+		text-decoration: none;
+		color: #333;
+	}
+	  
+	a:hover {
+		color: #666;
 	}
 
 	#regularText {
