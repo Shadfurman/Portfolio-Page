@@ -65,6 +65,10 @@ header {
   border-bottom: 2px solid #333;
 }
 
+article {
+  max-width: 75rem;
+  font-size: 1.3em;
+}
 #introduction {
   margin-left: 15rem;
   margin-right: 15rem;
@@ -108,11 +112,17 @@ section {
 #blog-list article {
   margin-bottom: 1.5rem;
   margin-left: 1.5rem;
+  max-width: 75rem;
 }
 
 #blog-list article a {
   text-decoration: none;
   font-weight: bold;
+}
+
+.img-blog {
+  width: 100%;
+  max-width: 50rem;
 }
 
 /* Footer */
