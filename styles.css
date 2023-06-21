@@ -68,6 +68,7 @@ header {
 article {
   max-width: 75rem;
   font-size: 1.3em;
+  margin: auto;
 }
 #introduction {
   margin-left: 15rem;
