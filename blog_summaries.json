@@ -1,5 +1,12 @@
 [
   {
+    "file": "unlocking_the_universe.html",
+    "title": "Unlocking the Universe: Why Understanding Complexity Isn't Just Smart, It's Essential",
+    "summary": "\n                Explore the importance of understanding complexity in various fields, showing how simple rules can create complex systems. It covers concepts like self-organization, emergent behavior, and the balance between chaos and order, emphasizing their relevance in decision-making and technology.\n                \n            ",
+    "link": "blog\\unlocking_the_universe.html",
+    "createdDate": "2023-12-16T07:00:00.000Z"
+  },
+  {
     "file": "digital_darwin.html",
     "title": "Digital Darwinism: The Inevitable Evolution and Ethics of AI Life",
     "summary": "\n                Explores the inevitable evolution of autonomous AI into complex, possibly sentient beings. Delves\n                    into the ethical considerations of interacting with these entities, balancing concerns with an\n                    optimistic vision of collaboration and mutual respect. Concludes with a call for empathy,\n                    understanding, and a synthesis of human and AI ethics to forge a harmonious future.\n            ",
@@ -9,14 +16,14 @@
   {
     "file": "bitcoin_a_prototype.html",
     "title": "Bitcoin: A Prototype for Future Governance",
-    "summary": "\n                Web3 technologies and cryptocurrencies offer trustless, transparent, and permissionless systems that\n                    have the potential to revolutionize governance and the future of money.\n            ",
+    "summary": "\n                Web3 technologies and cryptocurrencies offer trustless, transparent, and permissionless systems that\n                    have the potential to revolutionize governance and the future of money.\n                    \n            ",
     "link": "blog\\bitcoin_a_prototype.html",
     "createdDate": "2023-06-24T06:00:00.000Z"
   },
   {
     "file": "passwordformula.html",
     "title": "Passwords without Managers",
-    "summary": "\n                Navigating the labyrinth of password creation can seem daunting. This guide provides a balanced\n                    approach, advocating the use of password formulas to generate unique, memorable, and secure\n                    passwords for every site you use. By concocting your own recipe, you can create a strong password\n                    that meets each site's requirements and keep it fresh with simple annual updates. It's a 'set and\n                    forget' method that replaces the need for sticky notes or repetitive passwords and offers a smart\n                    solution to modern password dilemmas.\n            ",
+    "summary": "\n                Navigating the labyrinth of password creation can seem daunting. This guide provides a balanced\n                    approach, advocating the use of password formulas to generate unique, memorable, and secure\n                    passwords for every site you use. By concocting your own recipe, you can create a strong password\n                    that meets each site's requirements and keep it fresh with simple annual updates. It's a 'set and\n                    forget' method that replaces the need for sticky notes or repetitive passwords and offers a smart\n                    solution to modern password dilemmas.\n                    \n            ",
     "link": "blog\\passwordformula.html",
     "createdDate": "2023-06-20T06:00:00.000Z"
   },

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlocking the Universe: Why Understanding Complexity Isn't Just Smart, It's Essential</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center">Jonathan Johnston's Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#blog-list">Blog</a></li>
+                <li><a href="../index.html#resume">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <header>
+                <h2 style="text-align: center">Unlocking the Universe: Why Understanding Complexity Isn't Just Smart, It's Essential</h2>
+                <p class="author">By Jonathan Johnston</p>
+                <p class="date">Posted on December 16, 2023</p>
+            </header>
+            <div class="summary">
+                <p>Explore the importance of understanding complexity in various fields, showing how simple rules can create complex systems. It covers concepts like self-organization, emergent behavior, and the balance between chaos and order, emphasizing their relevance in decision-making and technology.</p>
+                <iframe width="1280" height="731" src="https://www.youtube.com/embed/Z7Vv95z_N9w?list=PL9hhV84kPmTDCy8hW-gN8aPWLgZy0XPpQ" title="Unlocking the Universe: Why Understanding Complexity Isn&#39;t Just Smart, It&#39;s Essential" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <section id="blog-text">
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2023 Jonathan Johnston. All rights reserved.</p>
+    </footer>
+    <script>
+        fetch('other-content/unlocking_the_universe-text.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('blog-text').innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
