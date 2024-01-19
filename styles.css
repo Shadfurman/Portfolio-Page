@@ -220,6 +220,54 @@ footer {
   }
 }
 
+article h1 {
+	font-size: 26pt;
+	font-family: Arial;
+  font-weight: lighter;
+	color: #000000;
+	margin-top: 0px;
+	margin-bottom: 3px;
+}
+article h1 small {
+	font-size: 15pt;
+	font-family: Arial;
+  font-weight: lighter;
+  color: #666666;
+	margin-top: 0px;
+	margin-bottom: 16px;
+}
+article h3 {
+	font-size: 16pt;
+	font-family: Arial;
+  font-weight: lighter;
+	color: #000000;
+	margin-top: 18px;
+	margin-bottom: 6px;
+}
+article p {
+	font-size: 11pt;
+	font-family: Arial;
+  font-weight: lighter;
+  color: #000000;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+article h4 {
+	font-size: 14pt;
+	font-family: Arial;
+  font-weight: lighter;
+	color: #434343;
+	margin-top: 16px;
+	margin-bottom: 4px;
+}
+article h5 {
+	font-size: 12pt;
+	font-family: Arial;
+  font-weight: lighter;
+	color: #666666;
+	margin-top: 14px;
+	margin-bottom: 4px;
+}
 
 /* #matrix-container {
   position: absolute;
