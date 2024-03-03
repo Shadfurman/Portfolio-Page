@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistence is All I Need</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Jonathan Johnston's Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#blog-list">Blog</a></li>
+                <li><a href="../index.html#resume">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <header>
+                <h2>Persistence is All I Need</h2>
+                <p class="author">By Jonathan Johnston</p>
+                <p class="date">Posted on March 2, 2024</p>
+            </header>
+            <div class="summary">
+                <p>Developing a trading bot, progressing from basic AI concepts to advanced applications in financial
+                    analytics. Despite challenges, they experiment with various techniques and models, demonstrating a
+                    journey of learning, adaptation, and persistent exploration in AI.</p>
+                <iframe width="1280" height="731" src="https://www.youtube.com/embed/FY_nFbUM4dQ?si=H2lWizfGvX5y2rBw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </article>
+        <article>
+            <h1>Persistence is All I Need</h1>
+            <h1><small>My Key in the AI Labyrinth</small></h1>
+            <h3>Where I Started: The Plan</h3>
+            <p>My fascination with artificial intelligence has always been more than a passing interest. I've vigilantly
+                followed the field's evolution, dabbled in crafting some basic neural networks, and felt reasonably
+                confident in my understanding of their mechanics. However, the advent of transformer models and the rise
+                of ChatGPT marked a turning point, signaling that it was time for me to recalibrate my approach and
+                deepen my technical repertoire.</p>
+            <br>
+            <p>Embarking on this new chapter, my ambitions were loftier than ever. I envisioned creating a trading bot
+                not just functional but also profitable, designed to operate seamlessly on a standard mid-range laptop.
+                This bot would be a tapestry woven from various AI methodologies—Autoencoders to distill immense data
+                pools into essence, Transformers to decode and learn from this essence through supervised training on
+                nuanced buy/sell signals, and Reinforcement Learning to steer the helm, evolving through its
+                interactions.</p>
+            <br>
+            <p>So, here's to the inception of a thrilling endeavor!</p>
+            <h3>Step 1: Do I Know Anything?</h3>
+            <p>With a roadmap in hand, pinpointing the technologies I needed to master, I initiated my journey by
+                setting up a digital sanctum aptly named "Percepticon." My first foray? A basic perceptron—a humble nod
+                to the genesis of AI learning, akin to scripting a "Hello World."</p>
+            <br>
+            <p>The training ground chosen was the MNIST dataset, an assembly of 70,000 images, typically split into
+                60,000 training images and 10,000 test images 28 x 28 pixel grayscale images portraying hand-scribbled
+                numerals. It's a quintessential starting block in AI practice.</p>
+            <br>
+            <p>My neural network was straightforward, embodying the classic architecture: an input layer with 784 nodes
+                (one for each pixel), a hidden layer hosting 128 nodes, and an output layer designed to identify digits
+                0 through 9, encoded distinctly. Because of my aversion to the nitty-gritty of matrix math, I conceded
+                to using numpy for sanity's sake.</p>
+            <br>
+            <p>The process was methodical: flatten the image arrays into 784-element vectors, initialize weights
+                randomly, forward propagate employing ReLU activations, culminating in a Softmax for probability
+                distribution, and then fine-tune via backpropagation until the improvements plateaued. Impressively, the
+                network reached a 98% accuracy rate—a testament to the efficacy of even basic structures in AI.</p>
+            <br>
+            <p>To put theory into tangible proof, I crafted a rudimentary (undeniably clunky) drawing application. My
+                creation recognized the digits I sketched with a success rate that, though not flawless, demonstrated a
+                clear grasp of the learned patterns—functioning accurately around 80% of the time.</p>
+            <br>
+            <p>This venture was not just about proving a concept; it was a hands-on affirmation of the foundational
+                knowledge I possessed and a stepping stone toward the more complex landscapes of AI I aimed to navigate.
+            </p>
+            <h3>Part B: Autoencoder Adventures with PyTorch</h3>
+            <p>As I ventured further into the PyTorch landscape, the grand-daddy of neural network libraries, I decided
+                to elevate my project by transitioning from a simple perceptron to an autoencoder. This wasn't just
+                about transformation; it was about truly grasping the intricacies of the autoencoder architecture. Once
+                I felt confident in my understanding, I embarked on the PyTorch translation of this model, aiming for
+                something more than just a basic rendition.</p>
+            <br>
+            <p>The challenge I chose was ambitious: to develop an autoencoder that could adjust image exposure and fill
+                in under- or overexposed areas—a concept that had intrigued me for years. Why this functionality isn't a
+                staple in advanced image editing tools remains a mystery to me.</p>
+            <br>
+            <p>My strategy involved using convolutional layers with ReLU activations, compressing the data down to a 32
+                x 32 latent representation before expanding back to a 256 x 256 image, concluding with a hyperbolic
+                tangent activation, which pushes the values to produce a one or a negative one, to accommodate the -1 to
+                1 normalization.</p>
+            <br>
+            <p>After prepping a dataset of 132,354 images, I embarked on a rigorous training regimen. I manipulated the
+                brightness of each 256 x 256 image to craft my training set, initiating an arduous cycle of forward and
+                backward passes that lasted three days on my modest Ryzen 5 laptop—sans the luxury of CUDA acceleration.
+            </p>
+            <br>
+            <p>The result? A blend of success and frustration. While the autoencoder managed to adjust exposure, the
+                output images were disappointingly blurry, and the anticipated clipped infill remained elusive. Despite
+                tweaking loss functions, network depth, and bottleneck width, sharpness and detail in the reconstructed
+                images remained just out of reach.</p>
+            <br>
+            <p>Yet, this endeavor wasn't in vain. I emerged with a solid grasp of autoencoders, even if the dream of
+                perfect automatic exposure correction requires further pursuit. For now, this project may be shelved,
+                but it's poised for revival once my laptop transforms from a learning tool into a profit engine.</p>
+            <h3>Red Zone: Navigating the Chaos of Financial Prediction</h3>
+            <p>Embarking on a quest to harness stock data for predictive modeling, I dove headfirst into the tumultuous
+                world of financial analytics. Selecting a dozen prominent large-cap stocks, I aimed to construct a
+                neural network capable of forecasting the subsequent day's stock candle, drawing on a year's worth of
+                Open, High, Low, Close, and Volume data.</p>
+            <br>
+            <p>Normalizing data in the realm of imagery is straightforward, given the bounded nature of pixel values.
+                However, stock data presents a wilder frontier, devoid of inherent caps. What is the ceiling for a
+                stock's value? My solution was to employ ratios relative to the previous close, a method I'll refine in
+                future iterations to offer more granularity and relevance.</p>
+            <br>
+            <p>The normalization process, particularly the transformation of these ratios to a 0-1 scale, now strikes me
+                as potentially flawed—a misstep in my haste that might have muddled the model's interpretations.</p>
+            <br>
+            <p>I allocated a decade of data, reserving the last year for testing after nine years of training. What
+                followed was a relentless debugging marathon, fraught with errors and makeshift fixes. The experience
+                was akin to navigating a minefield, fraught with setbacks yet punctuated by glimpses of progress.</p>
+            <br>
+            <p>Although the model exhibited a semblance of functionality, accurately predicting the general trend and
+                magnitude of stock movements, the accuracy of price levels remained elusive. Whether due to flawed
+                denormalization or minor computational discrepancies, the precise scaling of predicted values proved
+                challenging. Despite these hurdles, the model's directional predictions resonated with uncanny accuracy
+                across numerous trials.</p>
+            <br>
+            <p>In retrospect, my perception of success may be tinted by optimism, a willful search for validation amidst
+                the chaos. Yet, in this crucible of trial and error, I found invaluable lessons and a renewed resolve to
+                refine my approach in future endeavors.</p>
+            <h3>Final Encore: Setting the Stage for Success</h3>
+            <h4>The Prelude</h4>
+            <p>Determined to rectify past missteps and pursue precision, I embarked on a new journey, this time armed
+                with a clear vision and a commitment to methodical execution. The objective was straightforward yet
+                ambitious: to leverage the power of Reinforcement Learning through Stable Baselines Python library,
+                integrating a diverse array of data inputs to forge a sophisticated predictive model.</p>
+            <br>
+            <p>Transitioning from isolated datasets to a dynamic influx of information, I turned to yfinance, a library
+                to access Yahoo Finance, for real-time data acquisition, enriching my analysis with an exhaustive suite
+                of indicators via a technical analysis library called pandas_ta. Inspired by a novel approach I stumbled
+                upon—a YouTuber's strategy employing K-Nearest Neighbors for peak and trough detection—I decided to
+                experiment with this technique, intrigued by its simplicity and apparent efficacy. K-Nearest Neighbors
+                (KNN) clusters and categorize data, one of these things is just like these others.</p>
+            <br>
+            <p>Upon implementing the KNN model, I observed a pattern: while false positives were present, they
+                predominantly clustered around actual market peaks and troughs, suggesting a nuanced, albeit imperfect,
+                discernment of critical trends. Encouraged by these preliminary signs, I ventured into backtesting,
+                seeking to validate the model's practical value.</p>
+            <br>
+            <p>The results were a mixed bag—though the strategy did not consistently outperform a straightforward
+                buy-and-hold approach, it demonstrated sporadic bouts of superior profitability. This outcome, while not
+                unequivocally victorious, hinted at the potential lurking within these analytical methodologies.</p>
+            <h4>The Accident</h4>
+            <p>In an unforeseen twist, my focus veered toward an unexpected ally: the Random Forest algorithm. A random
+                forest creates many decision trees using different parts of the data and combines their results to make
+                more accurate predictions. Admittedly, my grasp of its inner workings—echoes of Markov chains and
+                statistical averages—was less than complete. Yet, its reputation for versatility spurred me to integrate
+                it into my analysis, smoothing data with a centered window average to discern peaks and valleys for
+                training the model.</p>
+            <br>
+            <p>Astoundingly, this approach demonstrated an ability to outperform both standard buy-and-hold strategies
+                and the broader S&P 500 across numerous assets. This accidental discovery propelled me down an
+                exploratory detour, brimming with potential yet fraught with complexity.</p>
+            <br>
+            <p>My on to a forward-testing phase, conducted through paper trading on daily intervals. The model has shown
+                prowess within lateral market phases. However, its performance faltered amidst pronounced bullish or
+                bearish trends, prompting a quest for adaptive mechanisms to discern and react to market transitions
+                effectively.</p>
+            <br>
+            <p>Experimentation with supertrend adjustments and support/resistance analysis offered incremental
+                advancements but fell short of transformative impact. Meanwhile, the idea of calibrating predictive
+                accuracy based on recent performance metrics lingered as a tantalizing prospect.</p>
+            <br>
+            <p>As I oscillate between my primary Reinforcement Learning project and these unforeseen quantitative
+                diversions, the allure of optimization remains an irresistible siren call. Though initially conceived as
+                a mere analytical tool, this Random Forest model has burgeoned into a standalone quantitative strategy,
+                its true efficacy yet to be fully ascertained.</p>
+            <br>
+            <p>In the interim, as I await the empirical verdict from ongoing forward tests and refine my overarching
+                methodologies, the boundary between focused research and captivating distraction blurs. Yet, within this
+                maelic of innovation, the journey itself emerges as the most enlightening reward.</p>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2023 Jonathan Johnston. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

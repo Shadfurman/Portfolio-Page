@@ -13,6 +13,12 @@
         <priority>1</priority>
     </url>
    <url>
+      <loc>https://shadfurman.com/blog/persistence_is_all_I_need.html</loc>
+      <lastmod>2024-03-03</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.5</priority>
+   </url>
+   <url>
       <loc>https://shadfurman.com/blog/unlocking_the_universe.html</loc>
       <lastmod>2023-12-16</lastmod>
       <changefreq>yearly</changefreq>

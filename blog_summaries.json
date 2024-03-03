@@ -1,8 +1,15 @@
 [
   {
+    "file": "persistence_is_all_I_need.html",
+    "title": "Persistence is All I Need",
+    "summary": "\n                Developing a trading bot, progressing from basic AI concepts to advanced applications in financial analytics. Despite challenges, they experiment with various techniques and models, demonstrating a journey of learning, adaptation, and persistent exploration in AI.\n            ",
+    "link": "blog\\persistence_is_all_I_need.html",
+    "createdDate": "2024-03-02T07:00:00.000Z"
+  },
+  {
     "file": "unlocking_the_universe.html",
     "title": "Unlocking the Universe: Why Understanding Complexity Isn't Just Smart, It's Essential",
-    "summary": "\n                Explore the importance of understanding complexity in various fields, showing how simple rules can create complex systems. It covers concepts like self-organization, emergent behavior, and the balance between chaos and order, emphasizing their relevance in decision-making and technology.\n                \n            ",
+    "summary": "\n                Explore the importance of understanding complexity in various fields, showing how simple rules can\n                    create complex systems. It covers concepts like self-organization, emergent behavior, and the\n                    balance between chaos and order, emphasizing their relevance in decision-making and technology.\n                \n            ",
     "link": "blog\\unlocking_the_universe.html",
     "createdDate": "2023-12-16T07:00:00.000Z"
   },
