@@ -1,15 +1,22 @@
 [
   {
+    "file": "demystifying_AI.html",
+    "title": "Demystifying AI: A Beginner's Guide to Building Your First Neural Network with Keras",
+    "summary": "\n                How to build a simple AI model using Python and Keras. It covers importing necessary libraries, loading\n                and preparing the Iris dataset, one-hot encoding labels, and splitting the data into training and test\n                sets. It then guides you through creating a sequential neural network, compiling the model, training it,\n                evaluating its performance, and making predictions. The tutorial highlights that with modern libraries\n                like Keras, developing AI models is accessible and straightforward for beginners. \n            ",
+    "link": "blog\\demystifying_AI.html",
+    "createdDate": "2024-05-25T06:00:00.000Z"
+  },
+  {
     "file": "persistence_is_all_I_need.html",
-    "title": "Persistence is All I Need: My Key in the AI Labyrinth",
-    "summary": "\n                Developing a trading bot, progressing from basic AI concepts to advanced applications in financial analytics. Despite challenges, they experiment with various techniques and models, demonstrating a journey of learning, adaptation, and persistent exploration in AI.\n            ",
+    "title": "Persistence is All I Need",
+    "summary": "\n                Developing a trading bot, progressing from basic AI concepts to advanced applications in financial\n                    analytics. Despite challenges, they experiment with various techniques and models, demonstrating a\n                    journey of learning, adaptation, and persistent exploration in AI.\n                \n                    \n                    \n                \n            ",
     "link": "blog\\persistence_is_all_I_need.html",
     "createdDate": "2024-03-02T07:00:00.000Z"
   },
   {
     "file": "unlocking_the_universe.html",
     "title": "Unlocking the Universe: Why Understanding Complexity Isn't Just Smart, It's Essential",
-    "summary": "\n                Explore the importance of understanding complexity in various fields, showing how simple rules can\n                    create complex systems. It covers concepts like self-organization, emergent behavior, and the\n                    balance between chaos and order, emphasizing their relevance in decision-making and technology.\n                \n            ",
+    "summary": "\n                Explore the importance of understanding complexity in various fields, showing how simple rules can\n                    create complex systems. It covers concepts like self-organization, emergent behavior, and the\n                    balance between chaos and order, emphasizing their relevance in decision-making and technology.\n                \n                    \n                    \n                \n            ",
     "link": "blog\\unlocking_the_universe.html",
     "createdDate": "2023-12-16T07:00:00.000Z"
   },
@@ -23,14 +30,14 @@
   {
     "file": "bitcoin_a_prototype.html",
     "title": "Bitcoin: A Prototype for Future Governance",
-    "summary": "\n                Web3 technologies and cryptocurrencies offer trustless, transparent, and permissionless systems that\n                    have the potential to revolutionize governance and the future of money.\n                    \n            ",
+    "summary": "\n                Web3 technologies and cryptocurrencies offer trustless, transparent, and permissionless systems that\n                    have the potential to revolutionize governance and the future of money.\n                \n                \n                    \n                    \n                \n            ",
     "link": "blog\\bitcoin_a_prototype.html",
     "createdDate": "2023-06-24T06:00:00.000Z"
   },
   {
     "file": "passwordformula.html",
     "title": "Passwords without Managers",
-    "summary": "\n                Navigating the labyrinth of password creation can seem daunting. This guide provides a balanced\n                    approach, advocating the use of password formulas to generate unique, memorable, and secure\n                    passwords for every site you use. By concocting your own recipe, you can create a strong password\n                    that meets each site's requirements and keep it fresh with simple annual updates. It's a 'set and\n                    forget' method that replaces the need for sticky notes or repetitive passwords and offers a smart\n                    solution to modern password dilemmas.\n                    \n            ",
+    "summary": "\n                Navigating the labyrinth of password creation can seem daunting. This guide provides a balanced\n                    approach, advocating the use of password formulas to generate unique, memorable, and secure\n                    passwords for every site you use. By concocting your own recipe, you can create a strong password\n                    that meets each site's requirements and keep it fresh with simple annual updates. It's a 'set and\n                    forget' method that replaces the need for sticky notes or repetitive passwords and offers a smart\n                    solution to modern password dilemmas.\n                \n                \n                    \n                    \n                \n            ",
     "link": "blog\\passwordformula.html",
     "createdDate": "2023-06-20T06:00:00.000Z"
   },

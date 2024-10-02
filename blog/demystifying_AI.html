@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demystifying AI: A Beginner's Guide to Building Your First Neural Network with Keras</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Jonathan Johnston's Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#blog-list">Blog</a></li>
+                <li><a href="../index.html#resume">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <header>
+                <h2>Demystifying AI: A Beginner's Guide to Building Your First Neural Network with Keras</h2>
+                <p class="author">By Jonathan Johnston</p>
+                <p class="date">Posted on May 25, 2024</p>
+            </header>
+            <div class="summary">
+                <p>How to build a simple AI model using Python and Keras. It covers importing necessary libraries, loading
+                and preparing the Iris dataset, one-hot encoding labels, and splitting the data into training and test
+                sets. It then guides you through creating a sequential neural network, compiling the model, training it,
+                evaluating its performance, and making predictions. The tutorial highlights that with modern libraries
+                like Keras, developing AI models is accessible and straightforward for beginners. </p>
+            </div>
+            <h1>Demystifying AI:</h1>
+            <h1><small>A Beginner's Guide to Building Your First Neural Network with Keras</small></h1>
+            <br>
+            <p>Coding AI with modern libraries is easier than you may think. It may sound foreign and complicated at
+                first, but starting with a simple example, you'll see how easy it can be. In this tutorial, we'll walk
+                through the steps to build a simple AI model in Python using the Keras library.</p>
+            <br>
+            <h4>This is what we'll do in this tutorial:</h4>
+            <ol style="margin-left: 36pt;">
+                <h5>Import necessary libraries:</h5>
+                <li>
+                    <p>We'll start by importing essential libraries such as numpy, pandas, and tools from sklearn and
+                        tensorflow.keras.</p>
+                </li>
+                <h5>Load the dataset:</h5>
+                <li>
+                    <p>We'll use the Iris dataset, a classic dataset in machine learning, to train our model.</p>
+                </li>
+                <h5>One-hot encode the labels:</h5>
+                <li>
+                    <p>We'll encode the target labels using one-hot encoding to prepare them for the neural network.</p>
+                </li>
+                <h5>Split the data into training and test sets:</h5>
+                <li>
+                    <p>We'll split the dataset into training and testing sets to evaluate our model's performance.</p>
+                </li>
+                <h5>Build the model:</h5>
+                <li>
+                    <p>We'll create a sequential neural network with two hidden layers and an output layer.</p>
+                </li>
+                <h5>Compile the model:</h5>
+                <li>
+                    <p>We'll configure the model with an optimizer, loss function, and evaluation metric.</p>
+                </li>
+                <h5>Train the model:</h5>
+                <li>
+                    <p>We'll train the neural network on the training data for a specified number of epochs.</p>
+                </li>
+                <h5>Evaluate the model:</h5>
+                <li>
+                    <p>We'll assess the model's performance on the test data to see how well it generalizes.</p>
+                </li>
+                <h5>Make predictions:</h5>
+                <li>
+                    <p>We'll use the trained model to make predictions on the test data.</p>
+                </li>
+            </ol>
+            <br>
+            <p>One-hot encoding is a way to turn categories into numbers that a machine learning model can understand.
+                Instead of using a single number for each category, we use a list of zeros and ones. For example, if we
+                have three categories like red, green, and blue, we represent them as [1, 0, 0] for red, [0, 1, 0] for
+                green, and [0, 0, 1] for blue. This helps the model know that each category is different without
+                assuming any order.</p>
+            <br>
+            <p>Before we dive into the code, it's important to approach AI development with an open mind. While it may
+                seem complex and daunting at first, modern libraries like Keras make it incredibly accessible, even for
+                beginners. You don't need a PhD in computer science to start building AI models. With just a few lines
+                of code and some basic understanding, you can create powerful AI applications. So, take a deep breath,
+                follow along step by step, and you'll soon see that developing AI is well within your reach. Let's get
+                started!</p>
+            <br>
+            <h3>Step 1: Import Necessary Libraries</h3>
+            <p>The first step in our AI development journey is to import the necessary libraries. These libraries
+                provide essential tools and functions that simplify the process of building and training neural
+                networks. Here's a breakdown of the libraries we're using:</p>
+            <pre><code class="language-python">
+            import numpy as np
+            import pandas as pd
+            from sklearn.datasets import load_iris
+            from sklearn.model_selection import train_test_split
+            from sklearn.preprocessing import OneHotEncoder
+            from tensorflow.keras.models import Sequential
+            from tensorflow.keras.layers import Dense
+            from tensorflow.keras.optimizers import Adam
+            </code></pre>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>numpy and pandas:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>numpy: A fundamental package for scientific computing in Python. It provides support for
+                            arrays
+                            and matrices, along with a collection of mathematical functions to operate on these data
+                            structures.</p>
+                    </li>
+                    <li>
+                        <p>pandas: A powerful data manipulation library that offers data structures like DataFrame,
+                            which
+                            makes it easy to handle and analyze data.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>sklearn (scikit-learn):</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>load_iris: A function to load the Iris dataset, which we'll use for training our model. It is
+                            included with sklearn.</p>
+                    </li>
+                    <li>
+                        <p>train_test_split: A utility to split the dataset into training and testing sets. We could use
+                            Keras validation_split, but as it’s important to test on unseen data, this gives us
+                            explicitly
+                            visible separate datasets for educational purposes.</p>
+                    </li>
+                    <li>
+                        <p>OneHotEncoder: A tool to convert categorical labels into a one-hot encoded format, which is
+                            essential for training neural networks. Keras has its own one-hot encoder as well,
+                            to_categorical.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>tensorflow.keras:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>Sequential: A type of model that allows you to build a neural network layer by layer in a
+                            sequential manner.</p>
+                    </li>
+                    <li>
+                        <p>Dense: A layer type in a neural network that is fully connected, meaning each neuron in the
+                            layer
+                            is connected to every neuron in the previous layer.</p>
+                    </li>
+                    <li>
+                        <p>Adam: An optimizer that adjusts the learning rate during training to improve the model's
+                            performance.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>By importing these libraries, we equip ourselves with the necessary tools to load data, preprocess it,
+                build and train a neural network, and evaluate its performance. With this foundation in place, we're
+                ready to move on to the next step.</p>
+            <br>
+            <h3>Step 2: Load the Dataset</h3>
+            <p>In this step, we will load the Iris dataset, which is a well-known dataset in the machine learning
+                community. The Iris dataset contains measurements of different features of iris flowers from three
+                different species. Our goal is to build a model that can classify the species of iris flowers based on
+                these measurements.</p>
+            <h4>Here's the code to load the dataset:</h4>
+            <pre><code class="language-python">
+            # Load the dataset
+            iris = load_iris()
+            X = iris.data
+
+            # Reshape for one-hot encoding
+            y = iris.target.reshape(-1, 1)
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Loading the dataset:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>iris = load_iris(): This line uses the load_iris function from sklearn.datasets to load the
+                            Iris
+                            dataset. The dataset is returned as a dictionary-like object with several keys, including
+                            'data'
+                            and 'target'.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Separating features and labels:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>X = iris.data: Here, we extract the features of the dataset, which are stored in iris.data.
+                            These
+                            features include measurements like sepal length, sepal width, petal length, and petal width
+                            for
+                            each flower. X is a 2D numpy array, picture a spreadsheet, where each row represents a
+                            flower
+                            and each column represents a feature.</p>
+                    </li>
+                    <li>
+                        <p>y = iris.target.reshape(-1, 1): The target labels, which indicate the species of each flower,
+                            are
+                            extracted from iris.target. The reshape(-1, 1) part ensures that y is reshaped into a 2D
+                            array
+                            with one column. This reshaping is necessary for the one-hot encoding step that we will
+                            perform
+                            next.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>By loading and preparing the dataset, we now have our features and labels ready for preprocessing. In the
+                next step, we will one-hot encode the labels to make them suitable for training our neural network.</p>
+            <br>
+            <h3>Step 3: One-Hot Encode the Labels</h3>
+            <p>Neural networks require labels to be in a specific format, especially for classification tasks. Instead
+                of having class labels as integers (e.g., 0, 1, 2), we use one-hot encoding to convert them into a
+                binary matrix representation (0, 0, 1, 0). Each class label is represented as a vector where only the
+                index corresponding to the class is 1, and all other indices are 0. This transformation is essential for
+                training our model effectively.</p>
+            <h4>Here's the code to one-hot encode the labels:</h4>
+            <pre><code class="language-python">
+            # One-hot encode the labels
+            encoder = OneHotEncoder(sparse_output=False)
+            y = encoder.fit_transform(y)
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Initializing the encoder:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>encoder = OneHotEncoder(sparse_output=False): We create an instance of OneHotEncoder from
+                            sklearn.preprocessing. The sparse_output=False argument ensures that the output is a dense
+                            array
+                            rather than a sparse matrix, making it easier to work with.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Fitting and transforming the labels:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>y = encoder.fit_transform(y): The fit_transform method first fits the encoder to the data (y)
+                            and
+                            then transforms it into the one-hot encoded format. The resulting y is now a 2D array where
+                            each
+                            row corresponds to a one-hot encoded label.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>For example, if our original labels were [0, 1, 2], after one-hot encoding, they would be transformed to:
+            </p>
+            <pre><code class="language-python">
+            [[1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]]
+            </code></pre>
+            <p>With the labels now one-hot encoded, we are ready to split our data into training and testing sets in the
+                next step.</p>
+            <br>
+            <h3>Step 4: Split the Data into Training and Test Sets</h3>
+            <p>To evaluate the performance of our model, we need to split the dataset into two parts: a training set and
+                a test set. The training set is used to train the model, while the test set is used to evaluate how well
+                the model generalizes to new, unseen data.</p>
+            <h4>Here's the code to split the data:</h4>
+            <pre><code class="language-python">
+            # Split the data into training and test sets
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Splitting the dataset:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>train_test_split(X, y, test_size=0.2, random_state=42): This function from
+                            sklearn.model_selection splits the features (X) and labels (y) into training and test sets.
+                            The
+                            test_size=0.2 argument specifies that 20% of the data should be used for testing, while the
+                            remaining 80% will be used for training. The random_state=42 argument ensures that the split
+                            is
+                            reproducible; using the same random state will always result in the same split.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Assigning the split data to variables:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>X_train: This variable holds the features of the training set.</p>
+                    </li>
+                    <li>
+                        <p>X_test: This variable holds the features of the test set.</p>
+                    </li>
+                    <li>
+                        <p>y_train: This variable holds the labels of the training set.</p>
+                    </li>
+                    <li>
+                        <p>y_test: This variable holds the labels of the test set.</p>
+                    </li>
+                </ul>
+            </ol>
+            <p>These variable conventions are pretty standard, ‘X’ is your input data, ‘y’ is your output data.</p>
+            <br>
+            <p>By splitting the data into training and test sets, we ensure that our model can be evaluated on a
+                separate set of data that it has not seen during training. This helps us assess the model's ability to
+                generalize to new data.</p>
+            <p>Next, we'll build the neural network model.</p>
+            <br>
+            <h3>Step 5: Build the Model</h3>
+            <p>In this step, we will build a neural network model using the Keras Sequential API. A Sequential model is
+                a linear stack of layers, where each layer has exactly one input tensor and one output tensor. Most
+                models are a sequential stack of layers, this API convention simplifies it. We'll add three layers to
+                our model: two hidden layers and one output layer.</p>
+            <h4>Here's the code to build the model:</h4>
+            <pre><code class="language-python">
+            # Build the model
+            model = Sequential([
+                Dense(10, input_shape=(4,), activation='relu'), # First hidden layer with 10 neurons
+                Dense(10, activation='relu'), # Second hidden layer
+                Dense(3, activation='softmax') # Output layer with softmax activation for multi-class classification
+            ])
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Initializing the model:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>model = Sequential([...]): We create a Sequential model by passing a list of layers.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Adding layers:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>Dense(10, input_shape=(4,), activation='relu'): The first layer is a Dense (fully connected)
+                            layer with 10 neurons. The input_shape=(4,) argument specifies that the input to this layer
+                            will
+                            be a vector of 4 elements (corresponding to the 4 features of the Iris dataset). The
+                            activation='relu' argument specifies that the ReLU (Rectified Linear Unit) activation
+                            function
+                            will be used for this layer. ReLU introduces non-linearity to the model, helping it learn
+                            complex patterns.</p>
+                    </li>
+                    <li>
+                        <p>Dense(10, activation='relu'): The second layer is another Dense layer with 10 neurons and
+                            ReLU
+                            activation. This layer further processes the data from the first layer.</p>
+                    </li>
+                    <li>
+                        <p>Dense(3, activation='softmax'): The output layer is a Dense layer with 3 neurons
+                            (corresponding
+                            to the 3 classes in the Iris dataset) and softmax activation. The softmax activation
+                            function
+                            converts the outputs into probabilities, with the sum of all probabilities equal to 1. This
+                            is
+                            useful for multi-class classification, as it allows us to interpret the output as the
+                            model's
+                            confidence in each class.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>By stacking these layers, we have created a simple feedforward neural network. In the next step, we will
+                compile the model, specifying the optimizer, loss function, and evaluation metric.</p>
+            <br>
+            <h3>Step 6: Compile the Model</h3>
+            <p>Compiling the model is an essential step that configures the learning process. In this step, we will
+                specify the optimizer, the loss function, and the evaluation metric that the model will use during
+                training and evaluation.</p>
+            <h4>Here's the code to compile the model:</h4>
+            <pre><code class="language-python">
+            model.compile(optimizer=Adam(learning_rate=0.01), loss='categorical_crossentropy', metrics=['accuracy'])
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Choosing the optimizer:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>optimizer=Adam(learning_rate=0.01): The Adam optimizer is used for training the model. Adam
+                            (short for Adaptive Moment Estimation) is an advanced optimization algorithm that adjusts
+                            the
+                            learning rate during training to improve performance. The learning_rate=0.01 argument
+                            specifies
+                            the initial learning rate.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Specifying the loss function:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>loss='categorical_crossentropy': The loss function measures how well the model's predictions
+                            match the actual labels. For multi-class classification tasks, categorical_crossentropy is
+                            commonly used. It calculates the cross-entropy loss between the true labels and the
+                            predicted
+                            probabilities, which helps the model learn to predict probabilities closer to the actual
+                            labels.
+                        </p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Setting the evaluation metric:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>metrics=['accuracy']: Metrics are used to evaluate the performance of the model during
+                            training
+                            and testing. In this case, we use accuracy, which measures the percentage of correctly
+                            predicted
+                            labels out of the total predictions.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>By compiling the model, we configure it for training, specifying how it will learn from the data, measure
+                its performance, and optimize its weights. In the next step, we will train the model using the training
+                data.</p>
+            <h3>Step 7: Train the Model</h3>
+            <p>In this step, we will train the model using the training data. Training involves feeding the training
+                data to the model, allowing it to adjust its weights to minimize the loss function. We will specify the
+                number of epochs, which is the number of times the entire training dataset will pass through the model.
+            </p>
+            <h4>Here's the code to train the model:</h4>
+            <pre><code class="language-python">
+            model.fit(X_train, y_train, epochs=150, verbose=1)
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Training the model:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>model.fit(X_train, y_train, epochs=150, verbose=1): The fit method trains the model on the
+                            training data (X_train and y_train). The epochs=150 argument specifies that the training
+                            process
+                            will run for 150 epochs. Each epoch involves one full pass through the entire training
+                            dataset.
+                            The verbose=1 argument ensures that the training progress is displayed, providing
+                            information
+                            about the loss and accuracy after each epoch.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>During training, the model adjusts its weights to minimize the loss function. This process involves
+                multiple iterations, where the optimizer updates the weights based on the gradients computed from the
+                loss function. As a result, the model learns to make better predictions over time.</p>
+            <p>By the end of the training process, the model should have learned patterns in the training data that
+                allow it to make accurate predictions. In the next step, we will evaluate the model's performance on the
+                test data to see how well it generalizes to new, unseen data.</p>
+            <h3>Step 8: Evaluate the Model</h3>
+            <p>After training the model, it's essential to evaluate its performance on a separate test set. This step
+                helps us understand how well the model generalizes to new, unseen data. We will use the test set to
+                measure the model's accuracy and loss.</p>
+            <h4>Here's the code to evaluate the model:</h4>
+            <pre><code class="language-python">
+            # Evaluate on the test set
+            loss, accuracy = model.evaluate(X_test, y_test)
+            print(f"Test Loss: {loss}, Test Accuracy: {accuracy}")
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Evaluating the model:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>loss, accuracy = model.evaluate(X_test, y_test): The evaluate method computes the loss and
+                            accuracy of the model on the test set (X_test and y_test). It returns the loss value and the
+                            accuracy metric specified during the model compilation step.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Printing the results:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>print(f"Test Loss: {loss}, Test Accuracy: {accuracy}"): This line prints the loss and
+                            accuracy
+                            values. The test loss indicates how well the model's predictions match the actual labels in
+                            the
+                            test set. The test accuracy represents the proportion of correctly classified samples out of
+                            the
+                            total test samples.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>Evaluating the model on the test set gives us a clear picture of its performance in a real-world
+                scenario. It helps identify whether the model has overfitted the training data (i.e., it performs well
+                on the training set but poorly on the test set) or if it generalizes well to new data.</p>
+            <p>In the next and final step, we will use the trained model to make predictions on the test data.</p>
+            <h3>Step 9: Make Predictions</h3>
+            <p>In the final step, we will use the trained model to make predictions on the test data. This step allows
+                us to see the model's output and understand how it classifies new samples.</p>
+            <h4>Here's the code to make predictions:</h4>
+            <pre><code class="language-python">
+            # Make predictions
+            predictions = model.predict(X_test)
+            print("Predictions:")
+            print(predictions)
+            </code></pre>
+            <h4>Let's break down what this code does:</h4>
+            <ol style="margin-left: 36pt;">
+                <li>
+                    <h5>Making predictions:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>predictions = model.predict(X_test): The predict method generates predictions for the test
+                            set
+                            (X_test). The output is a 2D array where each row corresponds to a sample in the test set,
+                            and
+                            each column represents the predicted probability for each class. The values in each row sum
+                            to
+                            1, indicating the model's confidence in each class.</p>
+                    </li>
+                </ul>
+                <li>
+                    <h5>Printing the predictions:</h5>
+                </li>
+                <ul style="margin-left: 36pt;">
+                    <li>
+                        <p>print("Predictions:"): This line prints a header indicating that the following output will be
+                            the
+                            model's predictions.</p>
+                    </li>
+                    <li>
+                        <p>print(predictions): This line prints the predictions array. Each row in the array shows the
+                            predicted probabilities for each class.</p>
+                    </li>
+                </ul>
+            </ol>
+            <br>
+            <p>For example, if the first sample in the test set is predicted to belong to the first class with high
+                confidence, the corresponding row in the predictions array might look like [0.9, 0.05, 0.05], indicating
+                a 90% probability for the first class and 5% for the other classes.</p>
+            <p>By examining these predictions, you can see how confident the model is about each classification. This
+                step completes our tutorial, demonstrating how to build, train, evaluate, and use a neural network for
+                classification tasks using Keras.</p>
+            <br>
+            <p>Congratulations on completing this tutorial! As you've seen, developing AI with modern libraries like
+                Keras is not only accessible but also straightforward. From importing the necessary libraries and
+                loading a dataset to building, training, and evaluating a neural network, each step is manageable with
+                just a few lines of code. This simple example with the Iris dataset demonstrates that you don't need to
+                be an expert to start building powerful AI models. With these foundational skills, you're well on your
+                way to exploring more advanced AI projects. Keep experimenting, stay curious, and remember that the
+                journey of learning AI is a continuous and rewarding one. Embrace the simplicity and power of these
+                tools, and you'll be amazed at what you can create!</p>
+            <br>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jonathan Johnston. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
