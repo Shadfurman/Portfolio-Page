@@ -2,9 +2,9 @@
   {
     "file": "demystifying_AI.html",
     "title": "Demystifying AI: A Beginner's Guide to Building Your First Neural Network with Keras",
-    "summary": "\n                How to build a simple AI model using Python and Keras. It covers importing necessary libraries, loading\n                and preparing the Iris dataset, one-hot encoding labels, and splitting the data into training and test\n                sets. It then guides you through creating a sequential neural network, compiling the model, training it,\n                evaluating its performance, and making predictions. The tutorial highlights that with modern libraries\n                like Keras, developing AI models is accessible and straightforward for beginners. \n            ",
+    "summary": "\n                How to build a simple AI model using Python and Keras. It covers importing necessary libraries, loading\n                and preparing the Iris dataset, one-hot encoding labels, and splitting the data into training and test\n                sets. It then guides you through creating a sequential neural network, compiling the model, training it,\n                evaluating its performance, and making predictions. The tutorial highlights that with modern libraries\n                like Keras, developing AI models is accessible and straightforward for beginners. \n                \n                    \n                \n            ",
     "link": "blog\\demystifying_AI.html",
-    "createdDate": "2024-05-25T06:00:00.000Z"
+    "createdDate": "2024-10-01T06:00:00.000Z"
   },
   {
     "file": "persistence_is_all_I_need.html",
