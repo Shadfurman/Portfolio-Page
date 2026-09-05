@@ -4,40 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Johnston - Portfolio & Blog</title>
+    <title>Jonathan Johnston — Notes & Experiments</title>
+    <meta name="description" content="Projects, experiments, and writing from Jonathan Johnston. AI, code, and a few rabbit holes.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css?v=3">
 </head>
 
-<body>
-    <div id="matrix-container"></div>
-    <div id="projects">
-        <h3>Projects</h3>
-        <ul>
-            <li><a href="https://shadfurman.github.io/index.html#solidVote" target="_blank">SolidVote</a></li>
-            <li><a href="https://shadfurman.github.io/index.html#BlogToVlogPy" target="_blank">BlogToVlogPy</a></li>
-            <li><a href="https://shadfurman.github.io/index.html#SimpleSaveToHTML" target="_blank">Simple Save to HTML</a></li>
-        </ul>
-    </div>
+<body class="home">
+    <a class="skip-link" href="#blog-list">Skip to writing</a>
+    <canvas id="matrix-container" aria-hidden="true"></canvas>
     <header>
         <h1>Jonathan Johnston</h1>
-        <img src="images\IMG_1304.JPG" alt="Profile picture of Jonathan Johnston" id="profile-picture" width="380" />
-        <h2>Blockchain Web Wizard & AI Aficionado</h2>
+        <div class="portrait">
+            <div class="portrait-window">
+                <img src="images/IMG_1304.JPG" alt="Jonathan Johnston" id="profile-picture" width="380" height="285" />
+            </div>
+        </div>
         <section id="introduction">
-            <p>Hi, I'm Jonathan, a budding software developer with a passion for blockchain and artificial intelligence.
-                As a newcomer to the field, I have honed my skills in Solidity and JavaScript, focusing on Ethereum
-                smart contracts and user-friendly front-ends for decentralized applications.</p>
-            <p>Eager to kickstart my professional journey, I'm excited to collaborate on innovative projects and learn
-                from every opportunity that comes my way. Explore my portfolio to discover my work and potential, and
-                feel free to reach out if you're interested in working together on groundbreaking ideas.</p>
+            <p>I make things, follow strange ideas, and occasionally write about where they lead. Much of that curiosity
+                revolves around AI—how it works, what I can build with it, and what happens next.</p>
+            <p>This is where I share projects, experiments, and whatever else catches my attention. Have a look around.</p>
         </section>
         <nav>
             <ul>
-                <li><a href="#personal-info">Personal Information</a></li>
-                <li><a href="#resume">Resume</a></li>
                 <li><a href="#blog-list">Blog</a></li>
+                <li><a href="#personal-info">My Deets</a></li>
+                <li><a href="#resume">Resume</a></li>
             </ul>
         </nav>
+
     </header>
+    <main>
+    <section id="blog-list" aria-labelledby="writing-title">
+        <h2 id="writing-title">Blog, projects, musings, errmm...</h2>
+        <p id="blog-status" role="status"></p>
+        <noscript><p>Browse the <a href="blog/demystifying_AI.html">AI tutorial</a>,
+            <a href="blog/persistence_is_all_I_need.html">trading bot experiments</a>, or
+            <a href="blog/solid_vote.html">SolidVote project</a>.</p></noscript>
+    </section>
+        <aside id="projects" aria-label="Projects">
+            <h2>Some things I've made</h2>
+            <ul>
+                <li><a href="https://shadfurman.github.io/index.html#solidVote" target="_blank" rel="noopener">SolidVote</a></li>
+                <li><a href="https://shadfurman.github.io/index.html#BlogToVlogPy" target="_blank" rel="noopener">BlogToVlogPy</a></li>
+                <li><a href="https://shadfurman.github.io/index.html#SimpleSaveToHTML" target="_blank" rel="noopener">Simple Save to HTML</a></li>
+            </ul>
+        </aside>
     <section id="personal-info">
         <h2>My Deets</h2>
         <p>Email: <a href="mailto:shadfurman@hotmail.com">shadfurman@hotmail.com</a></p>
@@ -50,22 +62,20 @@
     <section id="resume">
         <h2>Resume</h2>
         <a href="Resume-Jonathan-Johnston.pdf" download="Resume-Jonathan-Johnston.pdf">Download Resume</a>
-        <div id="expand-down" onclick="toggleVisibility('resume-iframe')">
-            <hr>
-            <div style="text-align: center;">▼</div>
-        </div>
-        <iframe src="Resume-Jonathan-Johnston.pdf" id="resume-iframe" width="100%" height="800px"
-            style="display:none;"></iframe>
+        <details class="resume-preview">
+            <summary>Take a peek <span aria-hidden="true">↘</span></summary>
+            <iframe data-src="Resume-Jonathan-Johnston.pdf" id="resume-iframe" title="Jonathan Johnston’s résumé"
+                width="100%" height="800" loading="lazy"></iframe>
+        </details>
     </section>
 
-    <section id="blog-list">
-        <h2>Blog, projects, musings, errmm... </h2>
-    </section>
+    </main>
 
     <footer>
+        <button id="motion-toggle" type="button" aria-pressed="false">Play ambient motion</button>
         <p>&copy; 2023 Jonathan Johnston. All rights reserved.</p>
     </footer>
-    <script src="app.js"></script>
+    <script src="app.js?v=5"></script>
 </body>
 
 </html>

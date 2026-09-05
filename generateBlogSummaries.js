@@ -22,6 +22,7 @@ async function readAndParseFile(file) {
     throw new Error(`File ${file} is missing a summary element`);
   }
   const summary = summaryElement.textContent;
+  const excerpt = dom.window.document.querySelector('meta[name="description"]')?.content;
 
   const dateElement = dom.window.document.querySelector('.date');
   if (!dateElement) {
@@ -38,6 +39,7 @@ async function readAndParseFile(file) {
     file,
     title,
     summary,
+    ...(excerpt ? { excerpt } : {}),
     link,
     createdDate
   };

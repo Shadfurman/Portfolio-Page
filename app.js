@@ -1,110 +1,134 @@
-fetch('blog_summaries.json')
-  .then(response => response.json())
-  .then(blogSummaries => {
-    blogSummaries.forEach(blog => {
-        const div = document.createElement('article');
-        div.className = 'blog-entry'
-        const link = document.createElement('a');
-        link.textContent = blog.title;
-        link.href = blog.link;
+const blogList = document.getElementById('blog-list');
+const blogStatus = document.getElementById('blog-status');
+const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
-        const summary = document.createElement('p');
-        summary.textContent = blog.summary;
-
-        // Append the link to the appropriate container in your HTML
-        const blogElement = document.getElementById('blog-list');
-        div.appendChild(link);
-        div.appendChild(summary);
-        blogElement.appendChild(div);
-    });
+fetch('blog_summaries.json?v=2')
+  .then(response => {
+    if (!response.ok) throw new Error('Unable to load posts');
+    return response.json();
   })
-  .catch(error => console.error(`Error fetching blog summaries: ${error}`));
+  .then(blogs => {
+    const entries = document.createDocumentFragment();
+    blogs.forEach(blog => {
+      const article = document.createElement('article');
+      article.className = 'blog-entry';
+      const date = document.createElement('time');
+      date.dateTime = blog.createdDate;
+      date.textContent = dateFormat.format(new Date(blog.createdDate));
+      const heading = document.createElement('h3');
+      const link = document.createElement('a');
+      link.textContent = blog.title;
+      link.href = blog.link.replaceAll('\\', '/');
+      heading.append(link);
+      const summary = document.createElement('p');
+      summary.textContent = (blog.excerpt || blog.summary).trim().replace(/\s+/g, ' ');
+      article.append(date, heading, summary);
+      entries.append(article);
+    });
+    blogList.append(entries);
+    blogStatus.remove();
+  })
+  .catch(() => {
+    blogStatus.textContent = 'The posts couldn’t load. Please refresh to try again.';
+  });
 
-function toggleVisibility(elementId) {
-    
-    var element = document.getElementById(elementId);
-    if (element.style.display === "none") {
-        element.style.display = "block";
-    } else {
-        element.style.display = "none";
+// Load the PDF only when someone opens the preview.
+document.querySelector('.resume-preview').addEventListener('toggle', event => {
+  const frame = document.getElementById('resume-iframe');
+  if (event.currentTarget.open && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+});
+
+// Three grid-based trails. Only this narrow canvas redraws, at 10 fps.
+const matrix = document.getElementById('matrix-container');
+const context = matrix.getContext('2d');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const motionToggle = document.getElementById('motion-toggle');
+let motionEnabled = !reducedMotion.matches;
+let motionChosen = false;
+let rainTimer = 0;
+let rainHeight = 0;
+let rainWidth = 0;
+const cell = 18;
+// This font maps its Matrix symbols to lowercase; uppercase is ordinary Latin.
+const glyphs = 'abcdefghijklmnopqrstuvwxyz0123456789';
+const randomGlyph = () => glyphs[Math.floor(Math.random() * glyphs.length)];
+const trails = Array.from({ length: 3 }, (_, i) => ({ head: 3 + i * 11, length: 10 + i * 3, ticks: 0, pace: i + 1, glyphs: [] }));
+
+function drawRain() {
+  context.clearRect(0, 0, rainWidth, rainHeight);
+  context.font = '14px "Matrix Code", monospace';
+  context.textAlign = 'center';
+  trails.forEach((trail, column) => {
+    for (let age = 0; age < trail.length; age++) {
+      const row = trail.head - age;
+      if (row < 0 || row * cell > rainHeight) continue;
+      context.fillStyle = age === 0 ? 'rgba(165, 165, 165, .55)' : `rgba(180, 180, 180, ${.36 * (1 - age / trail.length)})`;
+      context.fillText(trail.glyphs[row] || 'a', rainWidth * (column + .5) / 3, row * cell);
     }
+  });
 }
+function sizeRain() {
+  const rect = matrix.getBoundingClientRect();
+  rainWidth = rect.width;
+  rainHeight = rect.height;
+  const ratio = Math.min(devicePixelRatio || 1, 2);
+  matrix.width = Math.round(rainWidth * ratio);
+  matrix.height = Math.round(rainHeight * ratio);
+  context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  trails.forEach(trail => { trail.glyphs = Array.from({ length: Math.ceil(rainHeight / cell) + 20 }, randomGlyph); });
+  drawRain();
+}
+function stepRain() {
+  trails.forEach(trail => {
+    if (++trail.ticks % trail.pace !== 0) return;
+    trail.head++;
+    trail.glyphs[trail.head] = randomGlyph();
+    if (trail.head > rainHeight / cell + trail.length) trail.head = 0;
+  });
+  drawRain();
+}
+sizeRain();
+document.fonts.load('14px "Matrix Code"').then(drawRain);
+addEventListener('resize', sizeRain, { passive: true });
 
-
-
-// const container = document.getElementById("matrix-container");
-// const numberOfColumns = 50;
-// const columnHeight = 20;
-// const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~";
-
-// function randomCharacter() {
-//   return characters[Math.floor(Math.random() * characters.length)];
-// }
-
-// function createColumn() {
-//     const column = document.createElement("div");
-//     column.classList.add("matrix-column");
-  
-//     // Set a random horizontal position
-//     const position = Math.random() * 100;
-//     column.style.left = `${position}%`;
-  
-//     // Set a random initial bottom value
-//     const initialBottom = Math.random() * (100 + columnHeight);
-//     column.style.bottom = `${initialBottom}%`;
-  
-//     // Generate random characters for the column
-//     for (let i = 0; i < columnHeight; i++) {
-//       const char = document.createElement("span");
-//       char.textContent = randomCharacter();
-//       char.style.opacity = (i + 1) / columnHeight;
-//       column.appendChild(char);
-//     }
-  
-//     return column;
-//   }
-
-// // Create and append columns
-// for (let i = 0; i < numberOfColumns; i++) {
-//   const column = createColumn();
-//   container.appendChild(column);
-// }
-
-// // Update columns with random characters and falling effect
-// function updateColumns() {
-//   const columns = document.querySelectorAll(".matrix-column");
-
-//   columns.forEach(column => {
-//     // Move column down
-//     // const columnBottom = parseFloat(column.style.bottom, 10) + 50;
-//     let columnBottom = parseFloat(column.style.bottom, 10);
-//     // const newBottom = (columnBottom - 1 + 100 + columnHeight) % (100 + columnHeight);
-//     // let newBottom = ((100 + columnBottom - .7) % 100) - 50;
-//     columnBottom -= 0.7;
-//     columnBottom = columnBottom.toFixed(2);
-
-//     const header = document.querySelector('header');
-//     const headerRect = header.getBoundingClientRect();
-//     const headerBottom = headerRect.bottom;
-
-//     const footer = document.querySelector('footer');
-//     const footerRect = footer.getBoundingClientRect();
-//     const footerBottom = footerRect.bottom;
-
-//     if (columnBottom < -columnHeight) { columnBottom = 100 };
-//     // console.log(columnBottom, headerBottom, footerBottom);
-
-//     column.style.bottom = `${columnBottom}%`;
-
-//     // Update characters randomly
-//     if (Math.random() < 1) {
-//       const index = Math.floor(Math.random() * columnHeight);
-//       column.children[index].textContent = randomCharacter();
-//     }
-//   });
-
-// //   requestAnimationFrame(updateColumns);
-// setTimeout(() => {requestAnimationFrame(updateColumns);}, 100);
-// }
-
-// updateColumns();
+// Parallax only updates on scroll while the portrait is visible.
+const portrait = document.querySelector('.portrait');
+const photo = document.getElementById('profile-picture');
+let portraitVisible = false;
+let frameRequest = 0;
+function updatePortrait() {
+  frameRequest = 0;
+  const distance = Math.max(-18, Math.min(18, -portrait.getBoundingClientRect().top * .065));
+  photo.style.setProperty('--portrait-offset', `${distance.toFixed(1)}px`);
+}
+function schedulePortrait() {
+  if (portraitVisible && !document.hidden && motionEnabled && !frameRequest) frameRequest = requestAnimationFrame(updatePortrait);
+}
+new IntersectionObserver(([entry]) => {
+  portraitVisible = entry.isIntersecting;
+  schedulePortrait();
+}).observe(portrait);
+addEventListener('scroll', schedulePortrait, { passive: true });
+addEventListener('resize', schedulePortrait, { passive: true });
+function syncMotion() {
+  clearInterval(rainTimer);
+  rainTimer = 0;
+  if (motionEnabled && !document.hidden) rainTimer = setInterval(stepRain, 100);
+  motionToggle.textContent = motionEnabled ? 'Pause ambient motion' : 'Play ambient motion';
+  motionToggle.setAttribute('aria-pressed', String(motionEnabled));
+  if (frameRequest) cancelAnimationFrame(frameRequest);
+  frameRequest = 0;
+  if (!motionEnabled) photo.style.removeProperty('--portrait-offset');
+  schedulePortrait();
+}
+motionToggle.addEventListener('click', () => {
+  motionChosen = true;
+  motionEnabled = !motionEnabled;
+  syncMotion();
+});
+document.addEventListener('visibilitychange', syncMotion);
+reducedMotion.addEventListener('change', () => {
+  if (!motionChosen) motionEnabled = !reducedMotion.matches;
+  syncMotion();
+});
+syncMotion();

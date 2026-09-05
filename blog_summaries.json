@@ -4,7 +4,8 @@
     "title": "Demystifying AI: A Beginner's Guide to Building Your First Neural Network with Keras",
     "summary": "\n                How to build a simple AI model using Python and Keras. It covers importing necessary libraries, loading\n                and preparing the Iris dataset, one-hot encoding labels, and splitting the data into training and test\n                sets. It then guides you through creating a sequential neural network, compiling the model, training it,\n                evaluating its performance, and making predictions. The tutorial highlights that with modern libraries\n                like Keras, developing AI models is accessible and straightforward for beginners. \n                \n                    \n                \n            ",
     "link": "blog\\demystifying_AI.html",
-    "createdDate": "2024-10-01T06:00:00.000Z"
+    "createdDate": "2024-10-01T06:00:00.000Z",
+    "excerpt": "Build a first neural network with Python and Keras. A practical walkthrough of preparing data, training a model, and making predictions with the Iris dataset."
   },
   {
     "file": "persistence_is_all_I_need.html",
@@ -25,7 +26,8 @@
     "title": "Digital Darwinism: The Inevitable Evolution and Ethics of AI Life",
     "summary": "\n                Explores the inevitable evolution of autonomous AI into complex, possibly sentient beings. Delves\n                    into the ethical considerations of interacting with these entities, balancing concerns with an\n                    optimistic vision of collaboration and mutual respect. Concludes with a call for empathy,\n                    understanding, and a synthesis of human and AI ethics to forge a harmonious future.\n            ",
     "link": "blog\\digital_darwin.html",
-    "createdDate": "2023-08-13T06:00:00.000Z"
+    "createdDate": "2023-08-13T06:00:00.000Z",
+    "excerpt": "What might happen as autonomous AI becomes more complex? Thoughts on artificial life, ethics, and how humans might relate to it."
   },
   {
     "file": "bitcoin_a_prototype.html",
@@ -39,7 +41,8 @@
     "title": "Passwords without Managers",
     "summary": "\n                Navigating the labyrinth of password creation can seem daunting. This guide provides a balanced\n                    approach, advocating the use of password formulas to generate unique, memorable, and secure\n                    passwords for every site you use. By concocting your own recipe, you can create a strong password\n                    that meets each site's requirements and keep it fresh with simple annual updates. It's a 'set and\n                    forget' method that replaces the need for sticky notes or repetitive passwords and offers a smart\n                    solution to modern password dilemmas.\n                \n                \n                    \n                    \n                \n            ",
     "link": "blog\\passwordformula.html",
-    "createdDate": "2023-06-20T06:00:00.000Z"
+    "createdDate": "2023-06-20T06:00:00.000Z",
+    "excerpt": "An experiment in memorable passwords: creating a personal formula and adapting it for different sites. The approach, the reasoning, and the tradeoffs."
   },
   {
     "file": "arbitrage_bot.html",
@@ -60,7 +63,8 @@
     "title": "Welcome to the Pantech Phone Server",
     "summary": "\n\t\tMy experience setting up my first local server using Tiny Server. Outlines roadmap for learning web servers\n\t\t\tand programming, including my goal of pursuing Ethereum-based smart contract programming. The post also\n\t\t\tprovides instructions for setting up SSH access and authorized keys for passwordless login.\n\t",
     "link": "blog\\pantech.html",
-    "createdDate": "2022-08-11T06:00:00.000Z"
+    "createdDate": "2022-08-11T06:00:00.000Z",
+    "excerpt": "Turning an old phone into my first web server. Notes on Tiny Server, SSH access, and the beginnings of a programming journey."
   },
   {
     "file": "hpmini.html",
