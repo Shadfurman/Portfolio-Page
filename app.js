@@ -43,8 +43,15 @@ const matrix = document.getElementById('matrix-container');
 const context = matrix.getContext('2d');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const motionToggle = document.getElementById('motion-toggle');
-let motionEnabled = !reducedMotion.matches;
-let motionChosen = false;
+const motionStorageKey = 'ambient-motion';
+let savedMotion = null;
+try {
+  savedMotion = localStorage.getItem(motionStorageKey);
+} catch {
+  // Storage can be unavailable; the control still works for this visit.
+}
+let motionChosen = savedMotion === 'on' || savedMotion === 'off';
+let motionEnabled = motionChosen ? savedMotion === 'on' : !reducedMotion.matches;
 let rainTimer = 0;
 let rainHeight = 0;
 let rainWidth = 0;
@@ -124,6 +131,11 @@ function syncMotion() {
 motionToggle.addEventListener('click', () => {
   motionChosen = true;
   motionEnabled = !motionEnabled;
+  try {
+    localStorage.setItem(motionStorageKey, motionEnabled ? 'on' : 'off');
+  } catch {
+    // Keep the in-memory choice when the browser cannot save it.
+  }
   syncMotion();
 });
 document.addEventListener('visibilitychange', syncMotion);
